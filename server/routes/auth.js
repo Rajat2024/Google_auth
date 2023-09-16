@@ -43,7 +43,7 @@ router.get(
 	},
 	
 	passport.authenticate("google", {
-		successRedirect: "http://localhost:3000",
+		successRedirect: `${process.env.REACT_APP}`,
 		failureRedirect: "/login/failed",
 	})
 );
@@ -51,7 +51,7 @@ router.get(
 router.get("/logout", (req, res) => {
 	console.log("I am from /logout ");
 	req.logout();
-	res.redirect("http://localhost:3000");
+	res.redirect(`${process.env.REACT_APP}`);
 });
 
 module.exports = router;
